@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #2B2F31;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Contact Info Card Style */
+    .contact-card {
+      border-radius: 24px;
+      border: 1px solid #4C5155;
+      background: linear-gradient(180deg, #151718, #2B2F31);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      width: 45%; /* Adjusted width to occupy 45% of the screen */
+      height: 45%; /* Adjusted height to occupy 45% of the screen */
+      box-sizing: border-box;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 10px 2px blue,
+                  0 0 10px 4px lightgreen,
+                  0 0 10px 6px red,
+                  0 0 10px 8px yellow;
+    }
+
+    .contact-card p {
+      margin: 0;
+      padding: 5px 0;
+      color: #fff;
+    }
+
+    .email {
+      font-weight: bold;
+      color: #fff;
+    }
+  </style>
+  <title>Contact Us</title>
+</head>
+<body>
+  <div class="contact-card">
+    <p>Contact us at:</p>
+    <p class="email">pricetrackerp@gmail.com</p>
+  </div>
+</body>
+</html>
