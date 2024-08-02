@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Product Price Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #20232A;
+            color: #61DAFB;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .changelog-card {
+            background-color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .changelog-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .changelog-card h2 {
+            margin-bottom: 20px;
+        }
+
+        .changelog-card ul {
+            list-style: decimal;
+            padding: 0;
+            margin: 0 auto;
+            text-align: left;
+            max-width: 400px; /* Adjust width to fit content */
+        }
+
+        .changelog-card li {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="changelog-card">
+        <h2>Changelog</h2>
+        <ul>
+            <li>Added feature to track price changes in real-time.</li>
+            <li>Improved email notification system for price drops.</li>
+            <li>Enhanced user interface for better navigation.</li>
+            <li>Fixed bugs related to data import from Excel files.</li>
+            <li>Optimized performance for faster page loads.</li>
+        </ul>
+    </div>
+</body>
+</html>
