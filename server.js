@@ -1,30 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const path = require('path');
 const puppeteer = require('puppeteer');
 const xlsx = require('xlsx');
 const nodemailer = require('nodemailer');
+const path = require('path');  // Import the path module
 
 const app = express();
 const port = 3002;
 
-// Set storage engine
-const storage = multer.diskStorage({
-    destination: './uploads/',
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-});
-
-// Init upload
+// Init upload in memory
+const storage = multer.memoryStorage();
 const upload = multer({ storage }).single('file');
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Function to extract product details using Puppeteer with concurrency and optimized settings
@@ -32,7 +23,6 @@ async function getProductDetails(url, retries = 1) {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
-    // Disable images, CSS, and other unnecessary resources
     await page.setRequestInterception(true);
     page.on('request', (req) => {
         if (['image', 'stylesheet', 'font'].includes(req.resourceType())) {
@@ -99,8 +89,8 @@ app.post('/upload', (req, res) => {
         }
 
         try {
-            const filePath = req.file.path;
-            const workbook = xlsx.readFile(filePath);
+            const buffer = req.file.buffer;
+            const workbook = xlsx.read(buffer, { type: 'buffer' });
             const sheet_name_list = workbook.SheetNames;
             const sheet = workbook.Sheets[sheet_name_list[0]];
             const data = xlsx.utils.sheet_to_json(sheet);
