@@ -4,6 +4,7 @@ const multer = require('multer');
 const puppeteer = require('puppeteer');
 const xlsx = require('xlsx');
 const nodemailer = require('nodemailer');
+const path = require('path');  // Import the path module
 
 const app = express();
 const port = 3002;
